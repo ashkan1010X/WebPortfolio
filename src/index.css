@@ -90,6 +90,7 @@ body {
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
+  font-weight: bold; /* <-- BOLD TEXT */
 }
 
 /* Button hover effect */
@@ -131,10 +132,10 @@ form textarea {
   width: 100%; /* Ensure full width for all input fields */
 }
 
-/* Input fields for Name and Email - set to 40% width */
+/* Input fields for Name and Email - set to 15% width */
 form input[name="name"],
 form input[name="email"] {
-  width: 15%; /* Set to 40% width */
+  width: 15%;
 }
 
 /* Textarea specific styles */
@@ -148,6 +149,7 @@ textarea {
   background: #00ff41;
   color: #000;
   box-shadow: 0 0 20px #00ff41;
+  font-weight: bold; /* keep it bold for active too */
 }
 
 /* Button container alignment */
@@ -156,7 +158,6 @@ form .flex {
   align-items: flex-end; /* Align children (button) to the bottom */
 }
 
-/* Aligning button to the bottom */
 /* Aligning button to the bottom */
 form button {
   align-self: flex-end; /* Ensure the button aligns to the bottom */

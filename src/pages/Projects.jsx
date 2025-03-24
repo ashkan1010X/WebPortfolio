@@ -35,7 +35,7 @@ const Projects = () => {
             href={proj.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-black border-2 border-matrix-green px-6 py-3 rounded-md shadow-lg text-center transition-all hover:scale-105 hover:bg-matrix-green hover:text-black hover:shadow-2xl mb-8 inline-block"
+            className="project-card inline-block"
           >
             <h3 className="btn-matrix inline-block">{proj.title}</h3>
           </a>
