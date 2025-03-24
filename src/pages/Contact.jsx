@@ -34,7 +34,7 @@ const Contact = () => {
       )
       .then(
         (result) => {
-          setStatus("Message sent successfully!");
+          setStatus("He's Beginning To Believe..."); // Set Morpheus quote
           setFormData({ name: "", email: "", message: "" }); // Reset form
         },
         (error) => {
@@ -50,7 +50,7 @@ const Contact = () => {
       <p className="mb-6">
         Interested in exploring potential opportunities to collaborate or
         contribute to your team? Feel free to reach out!
-        <p>Im eager to discuss how my skills can align with your needs!</p>
+        <p>I'm eager to discuss how my skills can align with your needs!</p>
         <p>
           Please call <strong>(+1) 647 989-9343</strong> anytime or send an
           email below!
@@ -107,7 +107,12 @@ const Contact = () => {
           </button>
         </div>
       </form>
-      {status && <p className="mt-6 text-xl font-matrix">{status}</p>}
+      {status && (
+        <div className="mt-6 text-xl font-matrix fade-in">
+          <p>{status}</p> {/* Morpheus quote */}
+          <p className="text-lg mt-4">- Morpheus</p> {/* Morpheus caption */}
+        </div>
+      )}
     </section>
   );
 };

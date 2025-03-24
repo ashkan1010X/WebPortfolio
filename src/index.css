@@ -52,6 +52,18 @@ body {
   }
 }
 
+/* Fade-in animation for success message */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 5s ease-in forwards; /* Increased duration to 5s */
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
 /* Text and button color */
 .text-matrix-green {
   color: #00ff41;
