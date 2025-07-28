@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 const BackgroundAudio = () => {
   const audioRef = useRef(null);
@@ -22,6 +22,21 @@ const BackgroundAudio = () => {
       setIsMuted(audioRef.current.muted);
     }
   };
+
+  // Keybind listener for 'm' key to toggle mute/unmute
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key.toLowerCase() === "m" && hasPlayed) {
+        toggleMute();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [hasPlayed, isMuted]); // Contingent on hasPlayed and isMuted for fresh toggleMute access
 
   const baseButtonClass =
     "fixed bottom-6 left-6 z-50 px-6 py-3 rounded-full font-bold text-lg shadow-xl transition transform hover:scale-105 animate-pulse";

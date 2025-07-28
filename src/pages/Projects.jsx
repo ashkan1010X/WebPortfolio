@@ -1,26 +1,29 @@
-import React from "react";
-import "../index.css"; // Ensure updated CSS is imported
+import "../index.css";
 
 const Projects = () => {
   const projectList = [
     {
-      title: "Project 1",
-      description: "Hey",
+      title: "BooknGo",
+      description:
+        "A fullstack Airbnb-inspired app that makes booking and managing stays simple, fast, and hassle-free.",
       link: "https://bookngo.onrender.com//",
     },
     {
-      title: "Project 2",
-      description: "Hey",
+      title: "DataDish",
+      description:
+        "A powerful Recipe API delivering fresh, curated culinary data to fuel your next delicious creation.",
       link: "https://cooking-api-lyart.vercel.app/",
     },
     {
-      title: "Project 3",
-      description: "Hey",
+      title: "TaskTrack",
+      description:
+        "A sleek and intuitive to-do app designed to help you organize tasks and boost your productivity effortlessly.",
       link: "https://to-do-list-five-jade.vercel.app/",
     },
     {
-      title: "Project 4",
-      description: "Hey",
+      title: "YouTube Replica",
+      description:
+        "A detailed YouTube front-end clone demonstrating advanced CSS, Flexbox, and responsive design techniques.",
       link: "https://ashkan1010x.github.io/replicaYoutube/",
     },
   ];
@@ -31,7 +34,6 @@ const Projects = () => {
         My Projects
       </h2>
 
-      {/* Using CSS Grid for the projects layout */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-center cursor-pointer">
         {projectList.map((proj, idx) => (
           <div

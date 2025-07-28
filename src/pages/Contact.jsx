@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import emailjs from "emailjs-com";
 
 const Contact = () => {
-  // Manage form data with useState (just like in the first form)
+  // Manage form data with useState
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -27,18 +27,18 @@ const Contact = () => {
     // Send email via EmailJS
     emailjs
       .sendForm(
-        "service_csmyfus", // Your service ID
-        "template_lkedkvh", // Your template ID
-        e.target, // The form element
-        "kL-tg3hXqPak5QVS_" // Your user ID
+        "service_csmyfus", // Service ID
+        "template_lkedkvh", // Template ID
+        e.target,
+        "kL-tg3hXqPak5QVS_" // emailJs user ID
       )
       .then(
         (result) => {
-          setStatus("Thank you for reaching out!"); // Success message
-          setFormData({ name: "", email: "", message: "" }); // Reset form
+          setStatus("Thank you for reaching out!");
+          setFormData({ name: "", email: "", message: "" });
         },
         (error) => {
-          setStatus("Something went wrong. Please try again."); // Error message
+          setStatus("Something went wrong. Please try again.");
         }
       );
   };

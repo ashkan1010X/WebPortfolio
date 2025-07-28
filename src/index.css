@@ -1,16 +1,13 @@
-/* ✅ Orbitron font must be imported first */
 @import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
 
-/* Tailwind's base styles */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ✅ Apply the Orbitron font globally */
 body {
-  background-color: #101010; /* Dark background */
-  color: #fff; /* White text */
-  font-family: "Orbitron", sans-serif; /* Futuristic font */
+  background-color: #101010;
+  color: #fff;
+  font-family: "Orbitron", sans-serif;
 }
 
 /* Glowing effect for text */
