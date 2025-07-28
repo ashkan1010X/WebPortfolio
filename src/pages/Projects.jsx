@@ -6,11 +6,23 @@ const Projects = () => {
     {
       title: "Project 1",
       description: "Hey",
-      link: "https://nestwebsite.onrender.com/",
+      link: "https://bookngo.onrender.com//",
     },
-    { title: "Project 2", description: "Hey", link: "" },
-    { title: "Project 3", description: "Hey", link: "" },
-    { title: "Project 4", description: "Hey", link: "" },
+    {
+      title: "Project 2",
+      description: "Hey",
+      link: "https://cooking-api-lyart.vercel.app/",
+    },
+    {
+      title: "Project 3",
+      description: "Hey",
+      link: "https://to-do-list-five-jade.vercel.app/",
+    },
+    {
+      title: "Project 4",
+      description: "Hey",
+      link: "https://ashkan1010x.github.io/replicaYoutube/",
+    },
   ];
 
   return (
