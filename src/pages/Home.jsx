@@ -1,44 +1,26 @@
 import React from "react";
-import "../index.css";
+import "../index.css"; // Ensure updated CSS is imported
 
 const Home = () => {
-  const numDrops = 100;
-
-  const rainDrops = Array.from({ length: numDrops }, (_, index) => (
-    <div
-      key={index}
-      className="rain-drop"
-      style={{
-        left: `${(index / numDrops) * 100}%`,
-        animationDelay: `${Math.random() * 0.5}s`,
-      }}
-    />
-  ));
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-black text-matrix-green overflow-hidden">
-      <div className="matrix-rain absolute inset-0 z-0">{rainDrops}</div>
-      <div className="z-10 text-center space-y-4">
-        <h1
-          className="text-6xl font-matrix glitch"
-          data-text="Welcome to The Grid"
-        >
-          Welcome to The Grid
-        </h1>
-        <p className="text-xl font-matrix">
-          I'm a passionate coder on a journey to create innovative and
-          functional web applications. With a strong foundation in front-end and
-          back-end technologies, I strive to solve real-world problems through
-          clean, efficient code. I love exploring new languages, frameworks, and
-          techniques to stay at the cutting edge of web development.
-        </p>
-        <p className="text-lg font-matrix">
-          From building responsive user interfaces with React to crafting robust
-          back-end systems with Node.js, I enjoy bringing projects to life.
-          Let's work together to build something amazing.
-        </p>
-      </div>
-    </section>
+    <>
+      {/* Hero section */}
+      <section className="hero relative h-screen bg-gradient-to-r from-gray-900 to-black flex justify-center items-center text-center px-8">
+        <div className="absolute inset-0 bg-black opacity-60"></div>{" "}
+        {/* Dark overlay to enhance text visibility */}
+        {/* Description Section positioned at the top-left, below navbar */}
+        <div className="absolute top-24 left-8 text-white text-opacity-90"></div>
+        {/* Hero Content */}
+        <div className="content text-white relative z-10">
+          <h1 className="text-6xl font-bold glowing-text mb-6">
+            Welcome to My Portfolio
+          </h1>
+          <p className="mt-4 text-xl text-opacity-80">
+            Explore my projects, skills, and passion for web development.
+          </p>
+        </div>
+      </section>
+    </>
   );
 };
 

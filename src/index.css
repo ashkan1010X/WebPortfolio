@@ -1,199 +1,74 @@
-/* Global styles for matrix rain effect */
-html,
+/* ✅ Orbitron font must be imported first */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
+
+/* Tailwind's base styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ✅ Apply the Orbitron font globally */
 body {
-  margin: 0;
-  padding: 0;
-  background-color: black;
-  overflow: hidden;
-  font-family: "Share Tech Mono", monospace;
-  height: 100%;
-  position: relative;
+  background-color: #101010; /* Dark background */
+  color: #fff; /* White text */
+  font-family: "Orbitron", sans-serif; /* Futuristic font */
 }
 
-/* Matrix rain effect container */
-.matrix-rain {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1; /* Ensures the rain stays behind other content */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Space out the rain drops */
+/* Glowing effect for text */
+.glowing-text {
+  text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
+  animation: glowing 1.5s infinite alternate;
 }
 
-/* Each rain drop line */
-.matrix-rain .rain-drop {
-  position: absolute;
-  width: 2px; /* Width of each drop */
-  height: 100%; /* Make the rain cover the entire height of the screen */
-  background: repeating-linear-gradient(
-    0deg,
-    #00ff41,
-    #00ff41 2px,
-    transparent 2px,
-    transparent 4px
-  );
-  animation: rain 3s linear infinite; /* Slowed down to 3 seconds */
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  opacity: 0.7;
-}
-
-/* Keyframe for continuous rain effect */
-@keyframes rain {
+/* Pulsing glowing effect for text */
+@keyframes glowing {
   0% {
-    transform: translateY(-100%); /* Start above the screen */
+    text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 15px #00ffcc;
+  }
+  50% {
+    text-shadow: 0 0 20px #00ffcc, 0 0 30px #00ffcc, 0 0 40px #00ffcc;
   }
   100% {
-    transform: translateY(100%); /* Move down to the bottom of the screen */
+    text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 15px #00ffcc;
   }
 }
 
-/* Fade-in animation for success message */
-.fade-in {
-  opacity: 0;
-  animation: fadeIn 5s ease-in forwards; /* Increased duration to 5s */
+/* Glowing effect for the title and nav links on hover */
+.project-card:hover h3,
+.nav-link:hover {
+  color: #ffd700;
+  text-shadow: 0 0 15px #ffd700, 0 0 30px #ffd700, 0 0 45px #ffd700;
 }
 
-@keyframes fadeIn {
-  to {
-    opacity: 1;
+/* Project card base and hover effects */
+.project-card {
+  transition: all 0.3s ease-in-out;
+}
+
+.project-card:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 1), 0 0 50px rgba(0, 255, 255, 0.8),
+    0 0 100px rgba(0, 255, 255, 0.6);
+  animation: pulsate 1.5s infinite alternate;
+}
+
+/* Pulsing glowing effect for project card */
+@keyframes pulsate {
+  0% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 1), 0 0 50px rgba(0, 255, 255, 0.8),
+      0 0 100px rgba(0, 255, 255, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 255, 255, 1), 0 0 80px rgba(0, 255, 255, 0.9),
+      0 0 120px rgba(0, 255, 255, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 1), 0 0 50px rgba(0, 255, 255, 0.8),
+      0 0 100px rgba(0, 255, 255, 0.6);
   }
 }
 
-/* Text and button color */
-.text-matrix-green {
-  color: #00ff41;
-}
-
-.font-matrix {
-  font-family: "Share Tech Mono", monospace;
-}
-
-/* Input field styles */
-.input-matrix {
-  background: transparent;
-  border: 1px solid #00ff41;
-  color: #00ff41;
-  padding: 0.75rem;
-  border-radius: 0.5rem;
-  font-family: "Share Tech Mono", monospace;
-  transition: all 0.3s ease;
-}
-
-/* Focus effect for input fields */
-.input-matrix:focus {
-  outline: none;
-  box-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41 inset;
-}
-
-/* Button styles */
-.btn-matrix {
-  background: transparent;
-  border: 1px solid #00ff41;
-  padding: 0.75rem;
-  border-radius: 0.5rem;
-  color: #00ff41;
-  font-family: "Share Tech Mono", monospace;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  font-weight: bold; /* <-- BOLD TEXT */
-}
-
-/* Button hover effect */
-.btn-matrix:hover {
-  background: #00ff41;
-  color: #000;
-  box-shadow: 0 0 20px #00ff41;
-}
-
-/* Message box specific width */
-.message-box {
-  width: 100%; /* Set the width to 100% */
-  max-width: 600px; /* Optional: Max width */
-}
-
-/* Section for the contact page */
-section {
-  width: 100%;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* Left-align content */
-}
-
-/* Form container styles */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  width: 100%;
-  margin-left: 0; /* Align form to left edge */
-  margin-right: 0; /* Ensure form isn't centered */
-  max-width: 100%; /* Allow form to take full width */
-}
-
-/* Input and Textarea */
-form input,
-form textarea {
-  width: 100%; /* Ensure full width for all input fields */
-}
-
-/* Input fields for Name and Email - set to 15% width */
-form input[name="name"],
-form input[name="email"] {
-  width: 15%;
-}
-
-/* Textarea specific styles */
-textarea {
-  max-width: 100%;
-  width: 100%;
-  flex-grow: 1; /* Make the textarea grow to fill available space */
-}
-
-.active-btn {
-  background: #00ff41;
-  color: #000;
-  box-shadow: 0 0 20px #00ff41;
-  font-weight: bold; /* keep it bold for active too */
-}
-
-/* Button container alignment */
-form .flex {
-  display: flex;
-  align-items: flex-end; /* Align children (button) to the bottom */
-}
-
-/* Aligning button to the bottom */
-form button {
-  align-self: flex-end; /* Ensure the button aligns to the bottom */
-  margin-top: 5rem; /* Increase margin-top to push the button further down */
-}
-
-/* Button width */
-form .btn-matrix {
-  width: auto;
-  align-self: flex-start; /* Align the button to the left */
-}
-
-/* Responsive styles */
-@media (max-width: 600px) {
-  section {
-    padding: 1rem;
-  }
-
-  form {
-    width: 100%;
-  }
-
-  form input,
-  form textarea {
-    width: 100%;
-  }
+/* Button hover effect inside project cards */
+.project-card button:hover {
+  transform: translateY(-2px);
+  background-color: #008c7f;
 }

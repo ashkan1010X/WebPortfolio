@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
-import "../index.css";
 
 const Contact = () => {
+  // Manage form data with useState (just like in the first form)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -20,99 +20,81 @@ const Contact = () => {
     });
   };
 
-  // Send email with EmailJS
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
     // Send email via EmailJS
     emailjs
       .sendForm(
-        "service_2b87vh9", // Your Service ID
-        "template_u778il2", // Your Template ID
+        "service_csmyfus", // Your service ID
+        "template_lkedkvh", // Your template ID
         e.target, // The form element
-        "cOGhxeiLBvUHxb8ei" // Your User ID
+        "kL-tg3hXqPak5QVS_" // Your user ID
       )
       .then(
         (result) => {
-          setStatus("He's Beginning To Believe..."); // Set Morpheus quote
+          setStatus("Thank you for reaching out!"); // Success message
           setFormData({ name: "", email: "", message: "" }); // Reset form
         },
         (error) => {
-          setStatus("There was an error sending the message.");
+          setStatus("Something went wrong. Please try again."); // Error message
         }
       );
   };
 
   return (
-    <section className="relative flex flex-col items-center justify-center min-h-screen text-center p-6 bg-black text-matrix-green overflow-hidden">
-      <div className="matrix-rain absolute inset-0 z-0"></div>
-      <h2 className="text-3xl font-bold mb-4">Contact Me</h2>
-      <p className="mb-6">
-        Interested in exploring potential opportunities to collaborate or
-        contribute to your team? Feel free to reach out!
-        <p>I'm eager to discuss how my skills can align with your needs!</p>
-        <p>
-          Please call <strong>(+1) 647 989-9343</strong> anytime or send an
-          email below!
-        </p>
-      </p>
+    <section className="contact-section p-8 bg-gray-800 text-white">
+      <h2 className="text-center text-4xl font-bold text-teal-500 mb-8">
+        Contact Me
+      </h2>
       <form
-        className="flex flex-col space-y-6 w-full max-w-md"
         onSubmit={handleSubmit}
+        className="flex flex-col gap-6 max-w-xl mx-auto"
       >
         {/* Name Input */}
-        <div className="flex w-full">
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            className="input-matrix p-4 text-lg rounded-md border-2 border-matrix-green bg-black text-matrix-green placeholder:text-matrix-green w-[40%]"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </div>
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          className="p-4 rounded-md bg-gray-700 text-white border-2 border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500"
+          value={formData.name}
+          onChange={handleChange}
+          required
+        />
 
         {/* Email Input */}
-        <div className="flex w-full justify-center">
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            className="input-matrix p-4 text-lg rounded-md border-2 border-matrix-green bg-black text-matrix-green placeholder:text-matrix-green w-[40%]"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          className="p-4 rounded-md bg-gray-700 text-white border-2 border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
 
-        {/* Message Textarea with Button */}
-        <div className="flex flex-col w-full">
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            rows="6"
-            className="input-matrix p-4 text-lg rounded-md border-2 border-matrix-green bg-black text-matrix-green placeholder:text-matrix-green message-box w-full"
-            value={formData.message}
-            onChange={handleChange}
-            required
-          ></textarea>
+        {/* Message Textarea */}
+        <textarea
+          name="message"
+          placeholder="Your Message"
+          className="p-4 rounded-md bg-gray-700 text-white border-2 border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500"
+          value={formData.message}
+          onChange={handleChange}
+          required
+        ></textarea>
 
-          {/* Button */}
-          <button
-            type="submit"
-            className="btn-matrix p-4 text-lg rounded-md border-2 border-matrix-green bg-matrix-green text-black hover:bg-transparent hover:text-matrix-green mt-4"
-          >
-            Send
-          </button>
-        </div>
+        {/* Submit Button */}
+        <button
+          type="submit"
+          className="p-4 bg-teal-500 text-white rounded-md hover:bg-teal-400 focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all duration-300"
+        >
+          Send Message
+        </button>
       </form>
-      {status && (
-        <div className="mt-6 text-xl font-matrix fade-in">
-          <p>{status}</p> {/* Morpheus quote */}
-          <p className="text-lg mt-4">- Morpheus</p> {/* Morpheus caption */}
-        </div>
-      )}
+
+      {/* Status Message */}
+      {status && <p className="mt-6 text-center text-teal-500">{status}</p>}
     </section>
   );
 };

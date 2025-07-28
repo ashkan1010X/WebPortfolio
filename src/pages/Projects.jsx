@@ -1,47 +1,42 @@
 import React from "react";
-import "../index.css"; // Import the global styles
+import "../index.css"; // Ensure updated CSS is imported
 
 const Projects = () => {
   const projectList = [
     {
-      title: "FullStack AirBnB Clone",
-      link: "https://nestwebsite.onrender.com",
+      title: "Project 1",
+      description: "Hey",
+      link: "https://nestwebsite.onrender.com/",
     },
-    { title: "Food API App", link: "https://food-api-woad.vercel.app" },
-    {
-      title: "To-Do Tracker",
-      link: "https://to-do-app-gamma-swart.vercel.app",
-    },
-    {
-      title: "Youtube Replica",
-      link: "https://youtube-replica-project.vercel.app",
-    },
+    { title: "Project 2", description: "Hey", link: "" },
+    { title: "Project 3", description: "Hey", link: "" },
+    { title: "Project 4", description: "Hey", link: "" },
   ];
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center bg-black text-matrix-green overflow-hidden">
-      <div className="matrix-rain absolute inset-0 z-0"></div>{" "}
-      {/* Rain effect div */}
-      <div className="z-10 w-full max-w-6xl p-8 flex flex-wrap justify-center gap-16">
-        <h2
-          className="text-4xl font-matrix glitch text-center mb-8 w-full"
-          data-text="My Projects"
-        >
-          My Projects
-        </h2>
+    <div id="projects" className="p-8 bg-gray-900 text-white">
+      <h2 className="text-center text-4xl font-bold text-teal-500 mb-8">
+        My Projects
+      </h2>
+
+      {/* Using CSS Grid for the projects layout */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-center cursor-pointer">
         {projectList.map((proj, idx) => (
-          <a
+          <div
             key={idx}
-            href={proj.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="project-card inline-block"
+            className="project-card bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-2xl transform hover:scale-110 hover:glow transition-all duration-300"
           >
-            <h3 className="btn-matrix inline-block">{proj.title}</h3>
-          </a>
+            <h3 className="text-xl font-semibold">{proj.title}</h3>
+            <p className="mt-2 text-gray-400">{proj.description}</p>
+            <a href={proj.link} target="_blank" rel="noopener noreferrer">
+              <button className="mt-4 p-3 bg-teal-500 text-white rounded-md hover:bg-teal-400 transition-all duration-300">
+                View Project
+              </button>
+            </a>
+          </div>
         ))}
       </div>
-    </section>
+    </div>
   );
 };
 
