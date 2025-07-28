@@ -23,9 +23,18 @@ const BackgroundAudio = () => {
     }
   };
 
-  // Keybind listener for 'm' key to toggle mute/unmute
   useEffect(() => {
     const handleKeyDown = (e) => {
+      const tag = document.activeElement.tagName.toLowerCase();
+
+      if (
+        (tag === "input" || tag === "textarea" || tag === "select") &&
+        e.key.toLowerCase() === "m"
+      ) {
+        // Prevent mute toggle if typing in a form field
+        return;
+      }
+
       if (e.key.toLowerCase() === "m" && hasPlayed) {
         toggleMute();
       }
@@ -36,7 +45,7 @@ const BackgroundAudio = () => {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [hasPlayed, isMuted]); // Contingent on hasPlayed and isMuted for fresh toggleMute access
+  }, [hasPlayed, isMuted]);
 
   const baseButtonClass =
     "fixed bottom-6 left-6 z-50 px-6 py-3 rounded-full font-bold text-lg shadow-xl transition transform hover:scale-105 animate-pulse";
