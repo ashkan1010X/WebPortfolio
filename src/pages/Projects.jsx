@@ -34,7 +34,7 @@ const Projects = () => {
         My Projects
       </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-center cursor-pointer">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-center ">
         {projectList.map((proj, idx) => (
           <div
             key={idx}
@@ -43,7 +43,7 @@ const Projects = () => {
             <h3 className="text-xl font-semibold">{proj.title}</h3>
             <p className="mt-2 text-gray-400">{proj.description}</p>
             <a href={proj.link} target="_blank" rel="noopener noreferrer">
-              <button className="mt-4 p-3 bg-teal-500 text-white rounded-md hover:bg-teal-400 transition-all duration-300">
+              <button className="mt-4 p-3 bg-teal-500 text-white rounded-md hover:bg-teal-400 transition-all duration-300 cursor-pointer">
                 View Project
               </button>
             </a>
