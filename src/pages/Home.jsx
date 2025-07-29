@@ -8,14 +8,6 @@ const Home = () => {
 
         {/* Hero Content including description */}
         <div className="content text-white relative z-10 max-w-xl px-4 mx-auto">
-          <div className="mb-8 text-red-300 text-opacity-90 font-medium leading-relaxed text-center">
-            <p>
-              Crafting modern, scalable web solutions with clean code and
-              creative design. Passionate about turning ideas into seamless
-              digital experiences.
-            </p>
-          </div>
-
           <h1 className="text-6xl font-bold glowing-text mb-6">
             Welcome to the Code
           </h1>
