@@ -12,7 +12,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Map each technology to a logo (Devicon CDN or similar). Could later self-host for performance.
 const techLogos = {
   JavaScript:
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
@@ -26,10 +25,9 @@ const techLogos = {
   Redux:
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg",
   "Tailwind CSS":
-    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
-  GSAP: "https://raw.githubusercontent.com/gilbarbara/logos/main/logos/gsap.svg",
-  "Framer Motion":
-    "https://raw.githubusercontent.com/gilbarbara/logos/main/logos/framer-motion.svg",
+    "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg",
+  GSAP: "https://cdn.worldvectorlogo.com/logos/gsap-greensock.svg",
+  "Framer Motion": "https://cdn.worldvectorlogo.com/logos/framer-motion.svg",
   Sass: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg",
   Bootstrap:
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg",
@@ -50,7 +48,7 @@ const techLogos = {
   Git: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
   Docker:
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
-  AWS: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg",
+  AWS: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
 };
 
 const skills = {

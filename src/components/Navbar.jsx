@@ -41,7 +41,9 @@ const Navbar = () => {
       {/* Logo */}
       <div className="logo select-none">
         <h1 className="glowing-text text-2xl xs:text-3xl md:text-3xl text-white text-shadow-md leading-tight">
-          Ashkan | Full Stack Developer
+          <Link to="/" className={commonLinkClasses}>
+            Ashkan | Full Stack Developer
+          </Link>
         </h1>
       </div>
 
