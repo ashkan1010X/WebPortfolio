@@ -4,16 +4,53 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/webIcon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ashkan | Web Developer</title>
+    <title>Ashkan | Full Stack Developer Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Ashkan, a full stack developer specializing in modern React, Node.js, and scalable web applications."
+    />
+    <meta
+      name="keywords"
+      content="Ashkan, Full Stack Developer, React, Node.js, Portfolio, Software Engineer"
+    />
+    <meta name="author" content="Ashkan" />
+    <meta property="og:title" content="Ashkan | Full Stack Developer" />
+    <meta
+      property="og:description"
+      content="Explore projects, skills, and contact Ashkan for software engineering roles."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/webIcon.png" />
+    <meta property="og:url" content="https://your-domain.example" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ashkan | Full Stack Developer" />
+    <meta
+      name="twitter:description"
+      content="Modern full stack engineering portfolio."
+    />
+    <meta name="theme-color" content="#000000" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Ashkan",
+        "jobTitle": "Full Stack Developer",
+        "url": "https://your-domain.example",
+        "sameAs": ["https://github.com/ashkan1010X"]
+      }
+    </script>
     <style>
       /* Global styles */
       html,
       body {
         margin: 0;
         padding: 0;
-        height: 100%;
+        min-height: 100%;
         background-color: black;
-        overflow: hidden;
+        /* Removed global overflow:hidden so interior pages (e.g. About) can scroll on mobile */
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
       }
 
       canvas {
