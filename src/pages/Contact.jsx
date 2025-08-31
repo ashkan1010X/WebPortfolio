@@ -10,6 +10,7 @@ const Contact = () => {
   });
 
   const [status, setStatus] = useState("");
+  const [sending, setSending] = useState(false);
 
   // Handle form field changes
   const handleChange = (e) => {
@@ -23,34 +24,35 @@ const Contact = () => {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Send email via EmailJS
+    setSending(true);
+    setStatus("");
     emailjs
       .sendForm(
-        "service_csmyfus", // Service ID
-        "template_lkedkvh", // Template ID
+        "service_csmyfus",
+        "template_lkedkvh",
         e.target,
-        "kL-tg3hXqPak5QVS_" // emailJs user ID
+        "kL-tg3hXqPak5QVS_"
       )
       .then(
-        (result) => {
-          setStatus("Thank you for reaching out!");
+        () => {
+          setStatus("Thank you for reaching out! I'll get back soon.");
           setFormData({ name: "", email: "", message: "" });
         },
-        (error) => {
+        () => {
           setStatus("Something went wrong. Please try again.");
         }
-      );
+      )
+      .finally(() => setSending(false));
   };
 
   return (
-    <section className="contact-section p-8 bg-gray-800 text-white">
-      <h2 className="text-center text-4xl font-bold text-teal-500 mb-8">
-        Contact Me
+    <section className="contact-section min-h-screen pt-28 pb-16 px-6 bg-gradient-to-b from-gray-900 to-black text-white">
+      <h2 className="text-center text-4xl font-bold text-teal-400 mb-8">
+        Contact
       </h2>
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col gap-6 max-w-xl mx-auto"
+        className="flex flex-col gap-6 max-w-xl mx-auto bg-gray-800/60 backdrop-blur-sm p-8 rounded-xl border border-gray-700 shadow-xl"
       >
         {/* Name Input */}
         <input
@@ -87,14 +89,15 @@ const Contact = () => {
         {/* Submit Button */}
         <button
           type="submit"
-          className="p-4 bg-teal-500 text-white rounded-md hover:bg-teal-400 focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all duration-300"
+          disabled={sending}
+          className="p-4 bg-teal-600 disabled:opacity-60 disabled:cursor-not-allowed text-white rounded-md hover:bg-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all duration-300 font-semibold"
         >
-          Send Message
+          {sending ? "Sending..." : "Send Message"}
         </button>
       </form>
 
       {/* Status Message */}
-      {status && <p className="mt-6 text-center text-teal-500">{status}</p>}
+      {status && <p className="mt-6 text-center text-teal-400">{status}</p>}
     </section>
   );
 };

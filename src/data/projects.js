@@ -1,0 +1,160 @@
+export const projects = [
+  {
+    title: 'BooknGo',
+    slug: 'bookngo',
+    description: 'Full‑stack MERN booking platform for creating, browsing, and reserving lodging listings with JWT auth and date‑range availability filtering.',
+    longDescription: 'BooknGo is a MERN application that lets authenticated users list properties (with images, perks, pricing, availability windows) and create bookings constrained by host-defined availability. The frontend (React + Vite + Tailwind) provides responsive search with city/province suggestions, calendar pickers (Flatpickr), skeleton loading states, and protected account areas. The backend (Express + MongoDB/Mongoose) supplies REST endpoints for authentication (JWT in HttpOnly cookies), place CRUD, image uploads (Multer + static serving), and booking creation with server-side availability filtering. Data modeling cleanly separates Places, Bookings, and Users for scalability while keeping logic approachable.',
+    link: 'https://bookngo.onrender.com/',
+    repo: 'https://github.com/ashkan1010X/bookingApp',
+    stackShort: 'MERN',
+    tags: [
+      'React',
+      'Vite',
+      'TailwindCSS',
+      'Node.js',
+      'Express',
+      'REST API',
+      'MongoDB',
+      'Mongoose',
+      'JWT Auth',
+      'HttpOnly Cookies',
+      'bcrypt',
+      'Multer Uploads',
+      'Image Handling',
+      'date-fns',
+      'Flatpickr',
+      'State Management',
+      'Form Validation',
+      'Skeleton UI',
+      'Responsive UI',
+      'Accessibility',
+      'React Hooks',
+      'Context API',
+      'MERN Stack'
+    ],
+    highlights: [
+      'JWT + HttpOnly cookie auth with automatic profile hydration via context (UserContext)',
+      'Search & filter pipeline: location + date range → server availability filtering',
+      'Host tooling: image uploads (Multer), dynamic perks & availability windows in form UI',
+      'Robust booking flow with server-side validation & populated relations',
+      'Enhanced UX: skeleton states, province→city suggestions, responsive headers with Flatpickr'
+    ],
+    notableFeatures: {
+      authentication: 'Register, login, persistent session via JWT cookie; auto-fetch profile on app load (UserContext).',
+      dataModels: {
+        place: 'Place model includes owner ref, address struct, perks, availability window (checkIn/checkOut), price.',
+        booking: 'Booking model stores user, place ref, date range, guests, contact, computed price.',
+        user: 'User model referenced across Place & Booking.'
+      },
+      availabilityLogic: 'Query params (city / province / checkIn / checkOut) filter Places whose availability window fully covers requested range.',
+      imageHandling: 'Multer handles uploads; files served statically and rendered via dynamic base URLs.',
+      bookingFlow: 'Client computes nights (date-fns) then server persists booking & returns populated data.',
+      searchUX: 'Type‑ahead suggestions from static province→city map with keyboard navigation.',
+      dateSelection: 'Flatpickr integration for desktop; graceful fallback / native inputs on mobile.',
+      uiFeedback: 'Skeleton loaders for listings & bookings improve perceived performance.',
+      validation: 'Basic form required checks client-side plus JWT verification server-side.',
+      responsiveness: 'Distinct mobile vs desktop header/search layout handled in a single component.'
+    },
+    technicalDecisions: {
+      availabilityWindow: 'Simplified single availability range per Place to keep prototype logic lean.',
+      pricing: 'Static nightly price on Place; total computed client-side then persisted.',
+      stateManagement: 'Lightweight React state + context only (no global store library).',
+      security: 'Password hashing with bcrypt; JWT signed with env secret; protected routes verify token.'
+    },
+    futureEnhancements: [
+      'Stripe integration for real payments',
+      'Multiple availability ranges & conflict detection',
+      'Optimistic booking creation with rollback',
+      'Role-based authorization (host vs guest)',
+      'Image optimization / CDN delivery layer'
+    ]
+  },
+  {
+    title: 'DataDish',
+    slug: 'datadish',
+    description: 'Client-side React recipe search app consuming the Spoonacular API.',
+    longDescription: 'A Vite + React single-page frontend that lets users search Spoonacular for recipes, view a list of results with loading skeletons, and load detailed recipe information for a selected item. Uses a placeholder-driven search input (empty on initial load), responsive layout, CSS modules for styling, and simple state management with useState/useEffect. All API requests are made directly from the browser (API key exposed; no custom backend, caching layer, semantic search, validation schemas, or nutrition enrichment).',
+    link: 'https://cooking-api-lyart.vercel.app/',
+    repo: 'https://github.com/ashkan1010X',
+    stackShort: 'API',
+    tags: [
+      'React',
+      'Vite',
+      'Spoonacular API',
+      'REST',
+      'Fetch',
+      'Client-side Search',
+      'CSS Modules',
+      'Skeleton UI',
+      'Responsive UI',
+      'State Management',
+      'useState/useEffect',
+      'React Hooks',
+      'SPA'
+    ],
+    highlights: [
+      'React + Vite SPA consuming Spoonacular REST API directly (no backend proxy)',
+      'Search input (initially empty w/ placeholder) triggers dynamic recipe fetches',
+      'Grid of FoodItem cards renders results with clean visual hierarchy',
+      'Skeleton loaders appear while awaiting network responses & hydrate seamlessly',
+      'Selecting a recipe reveals a detail panel with full info & image',
+      'Mobile UX tweak: auto scroll-to-top on selection ensures detail visibility',
+      'Responsive layout via CSS modules + global App.css for shared primitives',
+      'API key loaded from Vite env (exposed client-side) with safe access pattern'
+    ],
+  },
+  {
+    title: 'TaskTrack',
+    slug: 'tasktrack',
+    description: 'A modern React to-do list app with real-time state updates and responsive design.',
+    longDescription: 'TaskTrack is a React-based to-do list application built with Vite. It features instant state updates using React hooks, a responsive and accessible UI, and modular component structure. Users can add, edit, complete, and delete tasks with immediate feedback. The app is styled with custom CSS modules for a polished look across devices.',
+    link: 'https://to-do-list-five-jade.vercel.app/',
+    repo: 'https://github.com/ashkan1010X',
+    stackShort: 'React',
+    tags: [
+      'React',
+      'Vite',
+      'Component-based',
+      'State Management',
+      'React Hooks',
+      'Accessibility',
+      'Responsive UI',
+      'CSS Modules',
+      'Productivity'
+    ],
+    highlights: [
+      'Add, edit, complete, and delete tasks with instant UI updates',
+      'Declarative state management using React hooks',
+      'Responsive and accessible interface with keyboard support',
+      'Modular component structure for maintainability'
+    ],
+  },
+  {
+    title: 'YouTube Layout Clone',
+    slug: 'youtube-replica',
+    description: 'Static HTML/CSS recreation of the YouTube homepage layout (header, sidebar, and responsive video grid).',
+    longDescription: 'A purely static front-end clone built with semantic (though not fully accessibility-optimized) HTML and modular CSS. It demonstrates layout structure using Flexbox for the header/sidebar and CSS Grid with media queries for a responsive video gallery (2–4 columns). Includes simple CSS-only hover tooltips and fixed positioning for persistent navigation.',
+    link: 'https://ashkan1010x.github.io/replicaYoutube/',
+    repo: 'https://github.com/ashkan1010X',
+    stackShort: 'Frontend (HTML/CSS)',
+    tags: [
+      'HTML5',
+      'CSS3',
+      'Flexbox',
+      'CSS Grid',
+      'Responsive Layout',
+      'Media Queries',
+      'Static Site',
+      'Semantic HTML',
+      'Hover Effects',
+      'Tooltips'
+    ],
+    highlights: [
+      'Fixed header and sidebar layout using Flexbox',
+      'Responsive 2–4 column video grid via CSS Grid breakpoints (750px and 1000px)',
+      'Pure CSS hover tooltips on action icons'
+    ],
+  },
+];
+
+export const allTags = Array.from(new Set(projects.flatMap(p => p.tags))).sort();
