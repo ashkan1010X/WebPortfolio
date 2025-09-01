@@ -55,7 +55,7 @@ const Home = () => {
           <br className="hidden sm:block" /> Clean Architecture & UX
         </h1>
         <p className="text-base sm:text-lg md:text-2xl text-gray-300/90 leading-relaxed max-w-3xl mx-auto mb-8">
-          I build resilient full stack web applications with a focus on
+          I build resilient full stack applications with a focus on
           <span className="inline-flex relative w-[11ch] justify-start mx-2 h-[1.6em]">
             {rotatingWords.map((w, i) => (
               <span
