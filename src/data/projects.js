@@ -30,7 +30,19 @@ export const projects = [
       'Accessibility',
       'React Hooks',
       'Context API',
-      'MERN Stack'
+      'MERN Stack',
+      'Component-based',
+      'useState/useEffect',
+      'Client-side Search',
+      'SPA',
+      'Responsive Layout',
+      'Media Queries',
+      'Flexbox',
+      'CSS3',
+      'HTML5',
+      'Hover Effects',
+      'Tooltips',
+      'Fetch'
     ],
     highlights: [
       'JWT + HttpOnly cookie auth with automatic profile hydration via context (UserContext)',
@@ -81,16 +93,22 @@ export const projects = [
       'React',
       'Vite',
       'Spoonacular API',
-      'REST',
+      'REST API',
       'Fetch',
       'Client-side Search',
       'CSS Modules',
+      'CSS3',
       'Skeleton UI',
       'Responsive UI',
+      'Media Queries',
       'State Management',
       'useState/useEffect',
       'React Hooks',
-      'SPA'
+      'SPA',
+      'HTML5',
+      'Component-based',
+      'Hover Effects',
+      'Image Handling'
     ],
     highlights: [
       'React + Vite SPA consuming Spoonacular REST API directly (no backend proxy)',
@@ -120,7 +138,11 @@ export const projects = [
       'Accessibility',
       'Responsive UI',
       'CSS Modules',
-      'Productivity'
+      'Productivity',
+      'Form Validation',
+      'Hover Effects',
+      'HTML5',
+      'CSS3'
     ],
     highlights: [
       'Add, edit, complete, and delete tasks with instant UI updates',
@@ -147,7 +169,8 @@ export const projects = [
       'Static Site',
       'Semantic HTML',
       'Hover Effects',
-      'Tooltips'
+      'Tooltips',
+      'Component-based'
     ],
     highlights: [
       'Fixed header and sidebar layout using Flexbox',
