@@ -31,6 +31,7 @@ const Home = () => {
     };
     requestAnimationFrame(step);
   }, []);
+
   useEffect(() => {
     const id = setInterval(() => {
       setWordIndex((i) => (i + 1) % rotatingWords.length);
