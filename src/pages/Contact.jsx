@@ -47,9 +47,21 @@ const Contact = () => {
 
   return (
     <section className="contact-section min-h-screen pt-28 pb-16 px-6 bg-gradient-to-b from-gray-900 to-black text-white">
-      <h2 className="text-center text-4xl font-bold text-teal-400 mb-8">
+      <h2 className="text-center text-4xl font-bold text-teal-400 mb-3">
         Contact
       </h2>
+      <p className="text-center text-sm text-gray-300 mb-8 max-w-2xl mx-auto">
+        Email me at
+        <a
+          className="ml-2 text-teal-300 underline"
+          href="mailto:ashkan861@gmail.com"
+        >
+          ashkan861@gmail.com
+        </a>
+        <span className="mx-1" />
+        or use the form below — I typically reply within 24–48 hours.
+      </p>
+
       <form
         onSubmit={handleSubmit}
         className="flex flex-col gap-6 max-w-xl mx-auto bg-gray-800/60 backdrop-blur-sm p-8 rounded-xl border border-gray-700 shadow-xl"
