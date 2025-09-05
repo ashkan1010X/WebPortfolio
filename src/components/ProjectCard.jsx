@@ -23,7 +23,7 @@ const ProjectCard = ({ project, onSelect }) => {
         {project.tags.slice(0, 4).map((tag) => (
           <span
             key={tag}
-            className="text-[11px] md:text-[10px] uppercase tracking-wide bg-gray-700/60 text-gray-300 px-2 py-1 rounded"
+            className="text-[11px] md:text-[10px] uppercase tracking-wide bg-gray-700/60 text-teal-300 px-2 py-1 rounded"
           >
             {tag}
           </span>
