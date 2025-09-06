@@ -5,7 +5,7 @@ export const projects = [
     description: 'Full‑stack MERN booking platform for creating, browsing, and reserving lodging listings with JWT auth and date‑range availability filtering.',
     longDescription: 'BooknGo is a MERN application that lets authenticated users list properties (with images, perks, pricing, availability windows) and create bookings constrained by host-defined availability. The frontend (React + Vite + Tailwind) provides responsive search with city/province suggestions, calendar pickers (Flatpickr), skeleton loading states, and protected account areas. The backend (Express + MongoDB/Mongoose) supplies REST endpoints for authentication (JWT in HttpOnly cookies), place CRUD, image uploads (Multer + static serving), and booking creation with server-side availability filtering. Data modeling cleanly separates Places, Bookings, and Users for scalability while keeping logic approachable.',
     link: 'https://bookngo.onrender.com/',
-    repo: 'https://github.com/ashkan1010X/bookingApp',
+    repo: 'https://github.com/ashkan1010X/bookingClone',
     stackShort: 'MERN',
     tags: [
       'React',
@@ -87,7 +87,7 @@ export const projects = [
     description: 'Client-side React recipe search app consuming the Spoonacular API.',
     longDescription: 'A Vite + React single-page frontend that lets users search Spoonacular for recipes, view a list of results with loading skeletons, and load detailed recipe information for a selected item. Uses a placeholder-driven search input (empty on initial load), responsive layout, CSS modules for styling, and simple state management with useState/useEffect. All API requests are made directly from the browser (API key exposed; no custom backend, caching layer, semantic search, validation schemas, or nutrition enrichment).',
     link: 'https://cooking-api-lyart.vercel.app/',
-    repo: 'https://github.com/ashkan1010X',
+    repo: 'https://github.com/ashkan1010X/cookAPI',
     stackShort: 'API',
     tags: [
       'React',
@@ -127,7 +127,7 @@ export const projects = [
     description: 'A modern React to-do list app with real-time state updates and responsive design.',
     longDescription: 'TaskTrack is a React-based to-do list application built with Vite. It features instant state updates using React hooks, a responsive and accessible UI, and modular component structure. Users can add, edit, complete, and delete tasks with immediate feedback. The app is styled with custom CSS modules for a polished look across devices.',
     link: 'https://to-do-list-five-jade.vercel.app/',
-    repo: 'https://github.com/ashkan1010X',
+    repo: 'https://github.com/ashkan1010X/toDoList',
     stackShort: 'React',
     tags: [
       'React',
@@ -157,7 +157,7 @@ export const projects = [
     description: 'Static HTML/CSS recreation of the YouTube homepage layout (header, sidebar, and responsive video grid).',
     longDescription: 'A purely static front-end clone built with semantic (though not fully accessibility-optimized) HTML and modular CSS. It demonstrates layout structure using Flexbox for the header/sidebar and CSS Grid with media queries for a responsive video gallery (2–4 columns). Includes simple CSS-only hover tooltips and fixed positioning for persistent navigation.',
     link: 'https://ashkan1010x.github.io/replicaYoutube/',
-    repo: 'https://github.com/ashkan1010X',
+    repo: 'https://github.com/ashkan1010X/replicaYoutube',
     stackShort: 'Frontend (HTML/CSS)',
     tags: [
       'HTML5',
