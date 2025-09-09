@@ -12,7 +12,7 @@ const rotatingWords = [
   "Performance",
   "Accessibility",
   "Scalability",
-  "Developer Experience",
+  "Security",
   "Resilience",
 ];
 
@@ -61,7 +61,7 @@ const Home = () => {
             {rotatingWords.map((w, i) => (
               <span
                 key={w + i}
-                className={`absolute inset-0 flex items-center justify-start transition-opacity duration-700 ${
+                className={`absolute inset-0 flex items-center justify-center transition-opacity duration-700 ${
                   i === wordIndex ? "opacity-100" : "opacity-0"
                 } text-teal-300`}
               >
