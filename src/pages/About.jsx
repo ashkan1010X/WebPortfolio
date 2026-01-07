@@ -383,7 +383,7 @@ const About = () => {
               <p className="text-sm sm:text-base leading-relaxed text-gray-300/90">
                 I aim for durable, observable systems: clear separation of
                 concerns, defensive API boundaries, progressive enhancement, and
-                iterative hardening guided by metrics—not guesses. I prioritize
+                iterative hardening guided by metrics, not guesses. I prioritize
                 accessibility, performance budgets, strong typing, automated
                 tests, and fast feedback loops (CI, lint, a11y & perf audits) so
                 code remains malleable as scope scales.
