@@ -221,7 +221,7 @@ const About = () => {
         duration: 0.9,
         stagger: 0.08,
         delay: 0.15,
-      }
+      },
     );
     return () => tl.kill();
   }, [prefersReducedMotion]);
@@ -241,7 +241,7 @@ const About = () => {
             stagger: 0.04,
             ease: "back.out(1.9)",
             delay: 0.25,
-          }
+          },
         );
       }
 
@@ -265,7 +265,7 @@ const About = () => {
                 start: "top 80%",
                 toggleActions: "play none none reverse",
               },
-            }
+            },
           );
         }
       });

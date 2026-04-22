@@ -31,7 +31,7 @@ const Contact = () => {
         "service_csmyfus",
         "template_lkedkvh",
         e.target,
-        "kL-tg3hXqPak5QVS_"
+        "kL-tg3hXqPak5QVS_",
       )
       .then(
         () => {
@@ -40,7 +40,7 @@ const Contact = () => {
         },
         () => {
           setStatus("Something went wrong. Please try again.");
-        }
+        },
       )
       .finally(() => setSending(false));
   };

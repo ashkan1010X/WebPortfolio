@@ -45,7 +45,7 @@ const Projects = () => {
       // focus first focusable inside modal after paint
       setTimeout(() => {
         const focusable = modalRef.current?.querySelector(
-          'a, button, [tabindex]:not([tabindex="-1"])'
+          'a, button, [tabindex]:not([tabindex="-1"])',
         );
         focusable?.focus();
       }, 10);
@@ -82,11 +82,11 @@ const Projects = () => {
   };
   const goPrev = useCallback(
     () => goToIndex(activeIndex - 1),
-    [activeIndex, filtered]
+    [activeIndex, filtered],
   );
   const goNext = useCallback(
     () => goToIndex(activeIndex + 1),
-    [activeIndex, filtered]
+    [activeIndex, filtered],
   );
 
   const onKeyDownModal = useCallback(
@@ -102,7 +102,7 @@ const Projects = () => {
       }
       if (e.key === "Tab" && modalRef.current) {
         const focusable = modalRef.current.querySelectorAll(
-          'a, button, [tabindex]:not([tabindex="-1"])'
+          'a, button, [tabindex]:not([tabindex="-1"])',
         );
         if (!focusable.length) return;
         const first = focusable[0];
@@ -116,12 +116,12 @@ const Projects = () => {
         }
       }
     },
-    [goPrev, goNext]
+    [goPrev, goNext],
   );
 
   const toggleTag = (tag) => {
     setSelectedTags((t) =>
-      t.includes(tag) ? t.filter((x) => x !== tag) : [...t, tag]
+      t.includes(tag) ? t.filter((x) => x !== tag) : [...t, tag],
     );
   };
 
