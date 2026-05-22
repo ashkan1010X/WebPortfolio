@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import "../index.css";
 
@@ -19,9 +19,12 @@ const rotatingWords = [
 const Home = () => {
   const [counts, setCounts] = useState(metrics.map(() => 0));
   const [wordIndex, setWordIndex] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const metricsRef = useRef(null);
 
-  // Initial metric counter (immediate on mount)
-  useEffect(() => {
+  const runCounter = useCallback(() => {
+    if (hasAnimated) return;
+    setHasAnimated(true);
     const duration = 1400;
     const start = performance.now();
     const step = (now) => {
@@ -30,7 +33,19 @@ const Home = () => {
       if (p < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
-  }, []);
+  }, [hasAnimated]);
+
+  // Fire counter when metrics grid enters the viewport
+  useEffect(() => {
+    const el = metricsRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) runCounter(); },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [runCounter]);
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -40,7 +55,7 @@ const Home = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 pt-28 sm:pt-0 overflow-hidden bg-black hero-noise">
+    <section className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20 sm:pt-0 overflow-hidden bg-black hero-noise">
       {/* Animated gradient backdrop */}
       <div className="absolute inset-0 hero-gradient-mask animate-pan-bg opacity-70" />
       {/* Decorative blurred orbs */}
@@ -51,11 +66,11 @@ const Home = () => {
         <div className="w-[120vmin] h-[120vmin] rounded-full border border-teal-500/10 animate-rotate-slow" />
       </div>
       <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center">
-        <h1 className="text-[clamp(2.35rem,8.4vw,3.6rem)] font-extrabold tracking-tight leading-tight mb-6 bg-clip-text text-transparent bg-[linear-gradient(120deg,#5eead4_0%,#38bdf8_35%,#6366f1_65%,#5eead4_100%)] bg-[length:200%_200%] animate-pan-bg drop-shadow-[0_0_8px_rgba(45,212,191,0.35)]">
+        <h1 className="text-[clamp(1.9rem,8.4vw,3.6rem)] font-extrabold tracking-tight leading-tight mb-4 sm:mb-6 bg-clip-text text-transparent bg-[linear-gradient(120deg,#5eead4_0%,#38bdf8_35%,#6366f1_65%,#5eead4_100%)] bg-[length:200%_200%] animate-pan-bg drop-shadow-[0_0_8px_rgba(45,212,191,0.35)]">
           Engineering Impact Through
           <br className="hidden sm:block" /> Clean Architecture & UX
         </h1>
-        <p className="text-base sm:text-lg md:text-2xl text-gray-300/90 leading-relaxed max-w-3xl mx-auto mb-8">
+        <p className="text-sm sm:text-lg md:text-2xl text-gray-300/90 leading-relaxed max-w-3xl mx-auto mb-6 sm:mb-8">
           I build resilient full stack applications with a focus on
           <span className="inline-flex relative w-[11ch] justify-start mx-2 h-[1.6em]">
             {rotatingWords.map((w, i) => (
@@ -72,22 +87,22 @@ const Home = () => {
           and maintainable code. Explore selected work and see how I approach
           shipping quality software.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14 w-full sm:w-auto">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 sm:mb-14 w-full sm:w-auto">
           <Link
             to="/projects"
-            className="group relative px-8 py-4 rounded-xl bg-gradient-to-r from-teal-600 via-cyan-600 to-sky-600 hover:from-teal-500 hover:to-sky-500 text-white font-semibold text-lg shadow-lg shadow-teal-600/30 transition focus:outline-none focus:ring-2 focus:ring-teal-400 overflow-hidden"
+            className="group relative px-8 py-3 sm:py-4 rounded-xl bg-gradient-to-r from-teal-600 via-cyan-600 to-sky-600 hover:from-teal-500 hover:to-sky-500 text-white font-semibold text-base sm:text-lg shadow-lg shadow-teal-600/30 transition focus:outline-none focus:ring-2 focus:ring-teal-400 overflow-hidden"
           >
             <span className="relative z-10">View Projects ↓</span>
             <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition" />
           </Link>
           <a
             href="/contact"
-            className="px-8 py-4 rounded-xl bg-gray-800/70 backdrop-blur hover:bg-gray-700 text-gray-200 font-semibold text-lg border border-gray-700/80 hover:border-teal-400 transition focus:outline-none focus:ring-2 focus:ring-teal-400"
+            className="px-8 py-3 sm:py-4 rounded-xl bg-gray-800/70 backdrop-blur hover:bg-gray-700 text-gray-200 font-semibold text-base sm:text-lg border border-gray-700/80 hover:border-teal-400 transition focus:outline-none focus:ring-2 focus:ring-teal-400"
           >
             Contact
           </a>
         </div>
-        <div className="grid grid-cols-3 gap-4 sm:gap-6 max-w-2xl mx-auto w-full">
+        <div ref={metricsRef} className="grid grid-cols-3 gap-3 sm:gap-6 max-w-2xl mx-auto w-full">
           {metrics.map((m, i) => (
             <div
               key={m.label}
