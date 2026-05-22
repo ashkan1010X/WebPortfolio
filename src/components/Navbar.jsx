@@ -39,12 +39,15 @@ const Navbar = () => {
   return (
     <div className="navbar-container fixed top-0 left-0 w-full h-20 flex justify-between items-center px-6 md:px-12 bg-black/40 backdrop-blur-md z-50 border-b border-teal-500/40">
       {/* Logo */}
-      <div className="logo select-none">
-        <h1 className="glowing-text text-2xl xs:text-3xl md:text-3xl text-white text-shadow-md leading-tight">
-          <Link to="/" className={commonLinkClasses}>
-            Ashkan | Full Stack Developer
-          </Link>
-        </h1>
+      <div className="logo select-none flex-shrink-0">
+        <Link to="/" className="focus:outline-none focus:ring-2 focus:ring-teal-400 rounded flex flex-col leading-tight">
+          <span className="glowing-text text-xl md:text-2xl font-extrabold text-white whitespace-nowrap">
+            Ashkan
+          </span>
+          <span className="text-[0.6rem] md:text-xs uppercase tracking-[0.18em] text-teal-400/80 font-medium whitespace-nowrap">
+            Full Stack Developer
+          </span>
+        </Link>
       </div>
 
       {/* Desktop navigation */}
