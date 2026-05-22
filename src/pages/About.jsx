@@ -34,7 +34,7 @@ const techLogos = {
   "Node.js":
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
   NestJS:
-    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-plain.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg",
   "Express.js":
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
   MySQL:
