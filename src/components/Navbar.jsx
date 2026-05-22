@@ -1,15 +1,12 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import "../index.css";
-import { useTheme } from "./ThemeProvider";
 
 const Navbar = () => {
-  const { theme, toggleTheme } = useTheme();
   const [open, setOpen] = useState(false);
   const menuRef = useRef(null);
   const toggleBtnRef = useRef(null);
 
-  // Close on escape key
   useEffect(() => {
     const onKey = (e) => {
       if (e.key === "Escape") setOpen(false);
@@ -18,16 +15,11 @@ const Navbar = () => {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  // Close on outside click
   useEffect(() => {
     if (!open) return;
     const handle = (e) => {
-      // Ignore clicks on the toggle button itself
-      if (toggleBtnRef.current && toggleBtnRef.current.contains(e.target))
-        return;
-      if (menuRef.current && !menuRef.current.contains(e.target)) {
-        setOpen(false);
-      }
+      if (toggleBtnRef.current && toggleBtnRef.current.contains(e.target)) return;
+      if (menuRef.current && !menuRef.current.contains(e.target)) setOpen(false);
     };
     document.addEventListener("mousedown", handle);
     return () => document.removeEventListener("mousedown", handle);
@@ -52,52 +44,17 @@ const Navbar = () => {
 
       {/* Desktop navigation */}
       <ul className="nav-links hidden sm:flex gap-6 md:gap-8 list-none text-sm md:text-lg font-semibold text-white items-center">
-        <li>
-          <Link to="/" className={commonLinkClasses}>
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link to="/projects" className={commonLinkClasses}>
-            Projects
-          </Link>
-        </li>
-        <li>
-          <Link to="/about" className={commonLinkClasses}>
-            About
-          </Link>
-        </li>
-        <li>
-          <Link to="/contact" className={commonLinkClasses}>
-            Contact
-          </Link>
-        </li>
-        <li>
-          <button
-            onClick={toggleTheme}
-            className="px-3 py-2 rounded-md bg-gray-800/70 hover:bg-gray-700 text-gray-200 text-xs md:text-sm border border-gray-600 shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-400"
-            aria-label="Toggle color theme"
-            data-testid="theme-toggle-desktop"
-          >
-            {theme === "dark" ? "🌙 Dark" : "☀️ Light"}
-          </button>
-        </li>
+        <li><Link to="/" className={commonLinkClasses}>Home</Link></li>
+        <li><Link to="/projects" className={commonLinkClasses}>Projects</Link></li>
+        <li><Link to="/about" className={commonLinkClasses}>About</Link></li>
+        <li><Link to="/contact" className={commonLinkClasses}>Contact</Link></li>
       </ul>
 
-      {/* Mobile controls */}
-      <div className="flex sm:hidden items-center gap-3">
-        <button
-          onClick={toggleTheme}
-          className="p-2 rounded-md bg-gray-800/70 hover:bg-gray-700 text-gray-200 text-sm border border-gray-600 shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-400"
-          aria-label="Toggle color theme"
-          data-testid="theme-toggle-mobile"
-        >
-          {theme === "dark" ? "🌙" : "☀️"}
-        </button>
+      {/* Mobile hamburger */}
+      <div className="flex sm:hidden items-center">
         <button
           ref={toggleBtnRef}
           type="button"
-          /* Avoid shifting desktop design; only visible mobile */
           className="p-2 inline-flex items-center justify-center rounded-md bg-gray-800/70 hover:bg-gray-700 border border-gray-600 text-teal-300 focus:outline-none focus:ring-2 focus:ring-teal-400"
           aria-label={open ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={open}
@@ -115,17 +72,9 @@ const Navbar = () => {
             className="w-6 h-6"
           >
             {open ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             )}
           </svg>
         </button>
@@ -141,53 +90,10 @@ const Navbar = () => {
         >
           <nav>
             <ul className="flex flex-col gap-4 text-base font-semibold text-white">
-              <li>
-                <Link
-                  to="/"
-                  className={commonLinkClasses + " block py-2"}
-                  onClick={() => setOpen(false)}
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/projects"
-                  className={commonLinkClasses + " block py-2"}
-                  onClick={() => setOpen(false)}
-                >
-                  Projects
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/about"
-                  className={commonLinkClasses + " block py-2"}
-                  onClick={() => setOpen(false)}
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/contact"
-                  className={commonLinkClasses + " block py-2"}
-                  onClick={() => setOpen(false)}
-                >
-                  Contact
-                </Link>
-              </li>
-              <li className="pt-2 border-t border-teal-500/30 mt-2">
-                <button
-                  onClick={() => {
-                    toggleTheme();
-                  }}
-                  className="w-full px-4 py-2 rounded-md bg-gray-800/70 hover:bg-gray-700 text-gray-200 border border-gray-600 shadow-sm text-sm focus:outline-none focus:ring-2 focus:ring-teal-400"
-                  aria-label="Toggle color theme"
-                >
-                  {theme === "dark" ? "Switch to Light" : "Switch to Dark"}
-                </button>
-              </li>
+              <li><Link to="/" className={commonLinkClasses + " block py-2"} onClick={() => setOpen(false)}>Home</Link></li>
+              <li><Link to="/projects" className={commonLinkClasses + " block py-2"} onClick={() => setOpen(false)}>Projects</Link></li>
+              <li><Link to="/about" className={commonLinkClasses + " block py-2"} onClick={() => setOpen(false)}>About</Link></li>
+              <li><Link to="/contact" className={commonLinkClasses + " block py-2"} onClick={() => setOpen(false)}>Contact</Link></li>
             </ul>
           </nav>
         </div>
