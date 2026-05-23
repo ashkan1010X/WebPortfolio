@@ -53,7 +53,8 @@ const techLogos = {
   Firebase:
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
   Neon: "https://cdn.simpleicons.org/neon/00E599",
-  Kinde: "https://cdn.simpleicons.org/kinde/E0FF73",
+  Kinde:
+    "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='5' fill='%230F0F0F'/><text x='12' y='17.5' text-anchor='middle' font-family='Arial Black, sans-serif' font-weight='900' font-size='15' fill='%23E0FF73'>K</text></svg>",
   Git: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
   Docker:
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
