@@ -364,9 +364,9 @@ const About = () => {
               <AnimatedText
                 index={0}
                 className="mt-6 text-base sm:text-lg md:text-xl max-w-3xl leading-relaxed text-gray-300"
-                highlights={["full", "stack", "developer"]}
+                highlights={["full", "stack", "software", "engineer"]}
                 text={
-                  "I'm a full stack developer who designs, builds, and optimizes web products end‑to‑end. I focus on performance, accessibility, scalability, and creating resilient architectures that align user needs with business outcomes. I enjoy crafting fluid interactions and systems that remain maintainable as they grow."
+                  "I'm a full stack software engineer who designs, builds, and ships software end‑to‑end — from web and mobile interfaces to the APIs, services, and infrastructure that power them. I focus on performance, accessibility, scalability, and resilient architectures that align user needs with business outcomes. I enjoy crafting fluid interactions and the systems that keep them reliable as they scale."
                 }
               />
               <motion.div
