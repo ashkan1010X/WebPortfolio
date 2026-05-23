@@ -38,6 +38,8 @@ const techLogos = {
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg",
   "Express.js":
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+  "Socket.IO":
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/socketio/socketio-original.svg",
   MySQL:
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
   PostgreSQL:
@@ -51,6 +53,7 @@ const techLogos = {
   Firebase:
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
   Neon: "https://cdn.simpleicons.org/neon/00E599",
+  Kinde: "https://cdn.simpleicons.org/kinde/E0FF73",
   Git: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
   Docker:
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
@@ -71,9 +74,9 @@ const skills = {
     "Sass",
     "Bootstrap",
   ],
-  Backend: ["Node.js", "NestJS", "Express.js"],
+  Backend: ["Node.js", "NestJS", "Express.js", "Socket.IO"],
   Database: ["PostgreSQL", "MongoDB", "MySQL", "Supabase", "Neon", "Firebase", "Prisma"],
-  Tools: ["Git", "Docker", "AWS"],
+  Tools: ["Git", "Docker", "AWS", "Kinde"],
 };
 
 const containerVariants = {
@@ -473,7 +476,7 @@ const About = () => {
                               loading="lazy"
                               alt={skill + " logo"}
                               className={`w-4 h-4 object-contain drop-shadow-sm shrink-0 ${
-                                skill === "Express.js"
+                                skill === "Express.js" || skill === "Socket.IO"
                                   ? "invert brightness-125"
                                   : ""
                               }`}
