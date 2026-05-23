@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useCallback } from "react";
+import { Link } from "react-router-dom";
 import {
   motion,
   useAnimation,
@@ -45,6 +46,10 @@ const techLogos = {
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
   Prisma:
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg",
+  Supabase:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg",
+  Firebase:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
   Git: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
   Docker:
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
@@ -66,7 +71,7 @@ const skills = {
     "Bootstrap",
   ],
   Backend: ["Node.js", "NestJS", "Express.js"],
-  Database: ["MySQL", "PostgreSQL", "MongoDB", "Prisma"],
+  Database: ["PostgreSQL", "MongoDB", "MySQL", "Supabase", "Firebase", "Prisma"],
   Tools: ["Git", "Docker", "AWS"],
 };
 
@@ -121,17 +126,16 @@ const textContainerVariants = {
   hidden: { opacity: 0 },
   show: (i = 0) => ({
     opacity: 1,
-    transition: { staggerChildren: 0.04, delayChildren: 0.1 + i * 0.05 },
+    transition: { staggerChildren: 0.018, delayChildren: 0.05 + i * 0.03 },
   }),
 };
 
 const wordVariants = {
-  hidden: { opacity: 0, y: "0.8em", filter: "blur(4px)" },
+  hidden: { opacity: 0, y: "0.4em" },
   show: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
-    transition: { duration: 0.45, ease: [0.22, 0.61, 0.36, 1] },
+    transition: { duration: 0.32, ease: [0.22, 0.61, 0.36, 1] },
   },
 };
 
@@ -146,7 +150,7 @@ const AnimatedText = ({ text, className = "", index = 0, highlights = [] }) => {
       variants={textContainerVariants}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, margin: "-40px" }}
+      viewport={{ once: true, margin: "0px 0px -120px 0px" }}
       custom={index}
       aria-label={text}
     >
@@ -319,8 +323,29 @@ const About = () => {
             transition: "transform 0.4s ease",
           }}
         >
-          <div className="flex flex-col md:flex-row md:items-start gap-10">
-            <div className="flex-1">
+          <div className="flex flex-col md:flex-row md:items-start gap-8 md:gap-10">
+            <motion.figure
+              initial={{ opacity: 0, y: 24, scale: 0.96 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="mx-auto md:mx-0 md:order-2 w-32 sm:w-40 md:w-56 lg:w-64 shrink-0 about-reveal relative"
+            >
+              <div className="relative rounded-2xl p-[2px] bg-gradient-to-br from-teal-400/60 via-cyan-400/40 to-indigo-500/50 shadow-[0_0_0_1px_rgba(56,189,248,0.25),0_8px_32px_-6px_rgba(56,189,248,0.4)]">
+                <img
+                  src="/profileIMG.jpg"
+                  alt="Ashkan portrait"
+                  loading="lazy"
+                  className="rounded-[inherit] object-cover w-full h-full aspect-[3/4] saturate-[1.05] contrast-[1.02]"
+                />
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 rounded-[inherit] ring-1 ring-teal-400/20"
+                />
+              </div>
+              <figcaption className="sr-only">Portrait of Ashkan</figcaption>
+            </motion.figure>
+            <div className="flex-1 md:order-1">
               <h1 className="select-none text-[clamp(2.1rem,6.2vw,3.45rem)] font-extrabold tracking-tight leading-[1.1] text-white flex flex-wrap gap-x-3">
                 <span className="inline-block overflow-hidden">
                   <span className="block">About</span>
@@ -340,27 +365,6 @@ const About = () => {
                 }
               />
             </div>
-            <motion.figure
-              initial={{ opacity: 0, y: 40, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="mx-auto md:mx-0 w-40 sm:w-48 md:w-56 lg:w-64 shrink-0 about-reveal relative"
-            >
-              <div className="relative rounded-2xl p-[2px] bg-gradient-to-br from-teal-400/60 via-cyan-400/40 to-indigo-500/50 shadow-[0_0_0_1px_rgba(56,189,248,0.25),0_8px_32px_-6px_rgba(56,189,248,0.4)]">
-                <img
-                  src="/profileIMG.jpg"
-                  alt="Ashkan portrait"
-                  loading="lazy"
-                  className="rounded-[inherit] object-cover w-full h-full aspect-[3/4] saturate-[1.05] contrast-[1.02]"
-                />
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute inset-0 rounded-[inherit] ring-1 ring-teal-400/20"
-                />
-              </div>
-              <figcaption className="sr-only">Portrait of Ashkan</figcaption>
-            </motion.figure>
           </div>
         </header>
 
@@ -427,7 +431,7 @@ const About = () => {
         <div className="mb-10">
           <h2 className="text-2xl font-bold mb-6 text-white">Tech Stack</h2>
           <motion.div
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 items-start"
             variants={containerVariants}
             initial="hidden"
             whileInView="show"
@@ -490,15 +494,41 @@ const About = () => {
           </motion.div>
         </div>
 
-        <div className="mt-20">
+        <div className="mt-24">
           <div className="mx-auto max-w-3xl text-center">
             <AnimatedText
               index={1}
-              className="text-sm sm:text-base text-gray-400"
+              className="text-sm sm:text-base text-gray-400 mb-8"
               text={
                 "Always exploring better ways to build fast, inclusive products. Open to collaborations and challenging product problems."
               }
             />
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.5, delay: 0.2, ease: [0.22, 0.61, 0.36, 1] }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
+            >
+              <Link
+                to="/projects"
+                className="group inline-flex items-center justify-center gap-2 w-full sm:w-auto px-7 py-3 rounded-xl bg-gradient-to-r from-teal-600 via-cyan-600 to-teal-600 hover:from-teal-500 hover:to-cyan-500 text-white font-semibold text-sm tracking-wide shadow-lg shadow-teal-600/25 hover:shadow-teal-500/40 transition-all duration-300"
+              >
+                View Projects
+                <svg className="w-4 h-4 translate-x-0 group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+              <Link
+                to="/contact"
+                className="group inline-flex items-center justify-center gap-2 w-full sm:w-auto px-7 py-3 rounded-xl bg-gray-800/60 border border-gray-700/70 hover:border-teal-400/60 hover:bg-teal-500/5 text-gray-200 hover:text-teal-300 font-semibold text-sm tracking-wide transition-all duration-300"
+              >
+                Get in Touch
+                <svg className="w-4 h-4 opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+            </motion.div>
           </div>
         </div>
         <div aria-hidden className="h-10" />
