@@ -368,6 +368,27 @@ const About = () => {
                   "I'm a full stack developer who designs, builds, and optimizes web products end‑to‑end. I focus on performance, accessibility, scalability, and creating resilient architectures that align user needs with business outcomes. I enjoy crafting fluid interactions and systems that remain maintainable as they grow."
                 }
               />
+              <motion.div
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="mt-7 flex flex-wrap gap-2.5"
+              >
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-medium">
+                  <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" />
+                  Open to opportunities
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-800/60 border border-gray-700/60 text-gray-300 text-xs font-medium">
+                  Full Stack
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-800/60 border border-gray-700/60 text-gray-300 text-xs font-medium">
+                  Based in Canada
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-800/60 border border-gray-700/60 text-gray-300 text-xs font-medium">
+                  Remote-friendly
+                </span>
+              </motion.div>
             </div>
           </div>
         </header>
@@ -384,8 +405,12 @@ const About = () => {
             whileHover={{ y: -4 }}
           >
             <div className="relative rounded-[inherit] p-6 sm:p-8 bg-gray-900/70 backdrop-blur-xl h-full transition-transform will-change-transform">
-              <h2 className="text-xl font-bold mb-4 flex items-center gap-2 text-teal-300">
-                <span className="w-2.5 h-2.5 rounded-full bg-teal-400 animate-pulse" />{" "}
+              <h2 className="text-xl font-bold mb-4 flex items-center gap-3 text-teal-300">
+                <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-teal-500/10 border border-teal-500/30 text-teal-300">
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </span>
                 Engineering Principles
               </h2>
               <p className="text-sm sm:text-base leading-relaxed text-gray-300/90">
@@ -405,8 +430,12 @@ const About = () => {
             whileHover={{ y: -4 }}
           >
             <div className="relative rounded-[inherit] p-6 sm:p-8 bg-gray-900/70 backdrop-blur-xl h-full transition-transform">
-              <h2 className="text-xl font-bold mb-4 flex items-center gap-2 text-teal-300">
-                <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />{" "}
+              <h2 className="text-xl font-bold mb-4 flex items-center gap-3 text-teal-300">
+                <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-300">
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </span>
                 What I Deliver
               </h2>
               <ul className="space-y-3 text-sm sm:text-base text-gray-300/90">
@@ -433,7 +462,20 @@ const About = () => {
         </motion.div>
 
         <div className="mb-10">
-          <h2 className="text-2xl font-bold mb-6 text-white">Tech Stack</h2>
+          <div className="mb-8">
+            <p className="text-xs uppercase tracking-[0.25em] text-teal-400/70 font-semibold mb-3">
+              The toolkit
+            </p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">
+              Tech{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-cyan-300 to-indigo-400">
+                Stack
+              </span>
+            </h2>
+            <p className="mt-2 text-sm text-gray-400 max-w-xl">
+              Technologies I reach for across the frontend, backend, data, and tooling layers.
+            </p>
+          </div>
           <motion.div
             className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 items-start"
             variants={containerVariants}
@@ -485,7 +527,7 @@ const About = () => {
                               }}
                             />
                           )}
-                          <span className="bg-clip-text text-transparent bg-[linear-gradient(90deg,#5eead4,#38bdf8_50%,#6366f1)] bg-[length:200%_200%] group-hover/item:animate-pan-bg whitespace-nowrap">
+                          <span className="text-gray-200 group-hover/item:text-transparent group-hover/item:bg-clip-text group-hover/item:bg-[linear-gradient(90deg,#5eead4,#38bdf8_50%,#6366f1)] transition-colors duration-200 whitespace-nowrap">
                             {skill}
                           </span>
                         </motion.li>
