@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import emailjs from "emailjs-com";
 import { motion } from "framer-motion";
 
@@ -47,6 +47,10 @@ const Contact = () => {
   const [sending, setSending] = useState(false);
   const formRef = useRef(null);
 
+  useEffect(() => {
+    emailjs.init("kL-tg3hXqPak5QVS_");
+  }, []);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -57,7 +61,7 @@ const Contact = () => {
     setSending(true);
     setStatus("");
     emailjs
-      .sendForm("service_csmyfus", "template_lkedkvh", e.target, "kL-tg3hXqPak5QVS_")
+      .sendForm("service_csmyfus", "template_lkedkvh", e.target)
       .then(
         () => {
           setStatus("success");
