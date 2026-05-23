@@ -50,6 +50,7 @@ const techLogos = {
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg",
   Firebase:
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
+  Neon: "https://cdn.simpleicons.org/neon/00E599",
   Git: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
   Docker:
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
@@ -71,7 +72,7 @@ const skills = {
     "Bootstrap",
   ],
   Backend: ["Node.js", "NestJS", "Express.js"],
-  Database: ["PostgreSQL", "MongoDB", "MySQL", "Supabase", "Firebase", "Prisma"],
+  Database: ["PostgreSQL", "MongoDB", "MySQL", "Supabase", "Neon", "Firebase", "Prisma"],
   Tools: ["Git", "Docker", "AWS"],
 };
 
