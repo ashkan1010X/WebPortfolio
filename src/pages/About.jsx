@@ -366,7 +366,7 @@ const About = () => {
                 className="mt-6 text-base sm:text-lg md:text-xl max-w-3xl leading-relaxed text-gray-300"
                 highlights={["full", "stack", "software", "engineer"]}
                 text={
-                  "I'm a full stack software engineer who designs, builds, and ships software end‑to‑end — from web and mobile interfaces to the APIs, services, and infrastructure that power them. I focus on performance, accessibility, scalability, and resilient architectures that align user needs with business outcomes. I enjoy crafting fluid interactions and the systems that keep them reliable as they scale."
+                  "I'm a full stack software engineer. I work across the entire stack: web and mobile on the front end, APIs, services, and infrastructure on the back. I care about performance, accessibility, and writing software that holds up as systems grow and teams change. The projects I enjoy most are the ones where polish at the surface and rigor underneath both have to be right."
                 }
               />
               <motion.div
