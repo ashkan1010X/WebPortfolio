@@ -63,7 +63,7 @@ export const projects = [
     tags: [
       'React',
       'Vite',
-      'TailwindCSS',
+      'Tailwind CSS',
       'Node.js',
       'Express',
       'REST API',
@@ -150,7 +150,7 @@ export const projects = [
       'Fetch',
       'Client-side Search',
       'CSS Modules',
-      'CSS3',
+      'Tailwind CSS',
       'Skeleton UI',
       'Responsive UI',
       'Media Queries',
